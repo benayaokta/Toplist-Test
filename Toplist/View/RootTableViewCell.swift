@@ -17,11 +17,12 @@ class RootTableViewCell: UITableViewCell {
     @IBOutlet weak var changeDay: UILabel!
     @IBOutlet weak var changePercentage: UILabel!
     @IBOutlet weak var view: UIView!
-//    {
-//        didSet{
+    {
+        didSet{
 //            view.backgroundColor = .red
-//        }
-//    }
+            view.layer.cornerRadius = 5
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

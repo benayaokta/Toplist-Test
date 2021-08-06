@@ -14,8 +14,8 @@
 		F4CAA55C26BBE95200EC84CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4CAA55B26BBE95200EC84CF /* Assets.xcassets */; };
 		F4CAA55F26BBE95200EC84CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4CAA55D26BBE95200EC84CF /* LaunchScreen.storyboard */; };
 		F4FDA3A226BC106700E4B0D1 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDA3A126BC106700E4B0D1 /* APICall.swift */; };
-		F4FDA3A426BC106F00E4B0D1 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDA3A326BC106F00E4B0D1 /* Response.swift */; };
-		F4FDA3A626BC265800E4B0D1 /* CryptoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDA3A526BC265800E4B0D1 /* CryptoData.swift */; };
+		F4FDA3A426BC106F00E4B0D1 /* CryptoDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDA3A326BC106F00E4B0D1 /* CryptoDataResponse.swift */; };
+		F4FDA3A626BC265800E4B0D1 /* CryptoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDA3A526BC265800E4B0D1 /* CryptoDataModel.swift */; };
 		F4FDA3A826BC2D8500E4B0D1 /* NewsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDA3A726BC2D8500E4B0D1 /* NewsTableVC.swift */; };
 		F4FDA3AB26BC2E7600E4B0D1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F4FDA3AA26BC2E7600E4B0D1 /* Alamofire */; };
 		F4FDA3AD26BC2F3800E4B0D1 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FDA3AC26BC2F3800E4B0D1 /* RootViewModel.swift */; };
@@ -33,8 +33,8 @@
 		F4CAA55E26BBE95200EC84CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4CAA56026BBE95200EC84CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4FDA3A126BC106700E4B0D1 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
-		F4FDA3A326BC106F00E4B0D1 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		F4FDA3A526BC265800E4B0D1 /* CryptoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoData.swift; sourceTree = "<group>"; };
+		F4FDA3A326BC106F00E4B0D1 /* CryptoDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDataResponse.swift; sourceTree = "<group>"; };
+		F4FDA3A526BC265800E4B0D1 /* CryptoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDataModel.swift; sourceTree = "<group>"; };
 		F4FDA3A726BC2D8500E4B0D1 /* NewsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableVC.swift; sourceTree = "<group>"; };
 		F4FDA3AC26BC2F3800E4B0D1 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		F4FDA3AE26BC933B00E4B0D1 /* RootTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTableViewCell.swift; sourceTree = "<group>"; };
@@ -107,8 +107,8 @@
 		F4FDA39E26BC0FE300E4B0D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F4FDA3A326BC106F00E4B0D1 /* Response.swift */,
-				F4FDA3A526BC265800E4B0D1 /* CryptoData.swift */,
+				F4FDA3A326BC106F00E4B0D1 /* CryptoDataResponse.swift */,
+				F4FDA3A526BC265800E4B0D1 /* CryptoDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,10 +210,10 @@
 				F4FDA3B026BC933B00E4B0D1 /* RootTableViewCell.swift in Sources */,
 				F4CAA55726BBE95000EC84CF /* ViewController.swift in Sources */,
 				F4CAA55326BBE95000EC84CF /* AppDelegate.swift in Sources */,
-				F4FDA3A626BC265800E4B0D1 /* CryptoData.swift in Sources */,
+				F4FDA3A626BC265800E4B0D1 /* CryptoDataModel.swift in Sources */,
 				F4FDA3A226BC106700E4B0D1 /* APICall.swift in Sources */,
 				F4CAA55526BBE95000EC84CF /* SceneDelegate.swift in Sources */,
-				F4FDA3A426BC106F00E4B0D1 /* Response.swift in Sources */,
+				F4FDA3A426BC106F00E4B0D1 /* CryptoDataResponse.swift in Sources */,
 				F4FDA3AD26BC2F3800E4B0D1 /* RootViewModel.swift in Sources */,
 				F4FDA3A826BC2D8500E4B0D1 /* NewsTableVC.swift in Sources */,
 			);

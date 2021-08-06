@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CryptoData {
+struct CryptoDataModel {
     let name:String
     let fullname:String
     let changeDay:String

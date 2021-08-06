@@ -14,10 +14,13 @@ class RootViewModel {
     
     func fetchData()
     {
-        apiCall.fireHomepageURL { respondeData in
-            print(#function)
-            print(respondeData)
+        
+        apiCall.fireHomepageURL { cryptoResponse in
+            print(cryptoResponse)
+        } onError: { err in
+            print(err)
         }
+
     }
     
 }
