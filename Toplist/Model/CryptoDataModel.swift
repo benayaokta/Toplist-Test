@@ -10,6 +10,7 @@ import Foundation
 struct CryptoDataModel {
     let name:String
     let fullname:String
+    let price:String
     let changeDay:String
     let changePercentageDay:String
 }

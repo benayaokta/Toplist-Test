@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UITableViewController {
     
     let rootVM = RootViewModel()
+    var items = [CryptoDataModel]()
     
     @IBOutlet weak var refresher: UIRefreshControl!
 
@@ -22,6 +23,7 @@ class ViewController: UITableViewController {
     private func setup(){
         tableView.register(RootTableViewCell.registerNib(), forCellReuseIdentifier: RootTableViewCell.cellIdentifier)
         self.title = "Toplist"
+        rootVM.delegate = self
         rootVM.fetchData()
     }
 
@@ -39,7 +41,7 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return items.count
     }
     
     
@@ -53,15 +55,35 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RootTableViewCell.cellIdentifier, for: indexPath) as! RootTableViewCell
-        cell.symbolName.text = "BTC"
-        cell.coinName.text = "Bitcoin"
-        cell.currentPrice.text = "5000"
-        cell.view.backgroundColor = .red
-        cell.changeDay.text = "100"
-        cell.changePercentage.text = "(+10%)"
+
+        let itemCell = items[indexPath.row]
+        
+        cell.symbolName.text = itemCell.name
+        cell.coinName.text = itemCell.fullname
+        cell.currentPrice.text = itemCell.price
+        cell.view.backgroundColor = .gray
+        cell.changeDay.text = itemCell.changeDay
+        cell.changePercentage.text = itemCell.changePercentageDay
         
         return cell
     }
 
+    
+}
+
+extension ViewController: RootViewModelDelegate{
+    func didFinishFetchingData(_ data: [CryptoDataModel]) {
+        self.items = data
+        
+        DispatchQueue.main.async { [self] in
+            tableView.reloadData()
+        }
+    
+        
+    }
+    
+   
+        
+    
     
 }

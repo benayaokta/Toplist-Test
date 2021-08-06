@@ -36,19 +36,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGJ-82-Mb0">
-                        <rect key="frame" x="414" y="36.5" width="100" height="20"/>
+                        <rect key="frame" x="394" y="36.5" width="120" height="20"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="HDy-6g-7iN">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="HDy-6g-7iN">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZL-uv-apz" userLabel="Change">
-                                        <rect key="frame" x="0.0" y="0.0" width="49" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVy-ky-PRN" userLabel="Change%">
-                                        <rect key="frame" x="51" y="0.0" width="49" height="20"/>
+                                        <rect key="frame" x="60.5" y="0.0" width="59.5" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                             <constraint firstAttribute="bottom" secondItem="HDy-6g-7iN" secondAttribute="bottom" id="Wbg-Kx-yeW"/>
                             <constraint firstItem="HDy-6g-7iN" firstAttribute="top" secondItem="BGJ-82-Mb0" secondAttribute="top" id="nic-nl-YuR"/>
                             <constraint firstAttribute="trailing" secondItem="HDy-6g-7iN" secondAttribute="trailing" id="qKx-HX-1rc"/>
-                            <constraint firstAttribute="width" constant="100" id="rxk-gJ-ma1"/>
+                            <constraint firstAttribute="width" constant="120" id="rxk-gJ-ma1"/>
                             <constraint firstAttribute="height" constant="20" id="sF7-ya-xu1"/>
                             <constraint firstItem="HDy-6g-7iN" firstAttribute="leading" secondItem="BGJ-82-Mb0" secondAttribute="leading" id="thg-bQ-RWc"/>
                         </constraints>
