@@ -10,7 +10,7 @@ import UIKit
 class RootTableViewCell: UITableViewCell {
     
     static let cellIdentifier = "rootCell"
-
+    
     @IBOutlet weak var symbolName: UILabel!
     @IBOutlet weak var coinName: UILabel!
     @IBOutlet weak var currentPrice: UILabel!
@@ -19,24 +19,31 @@ class RootTableViewCell: UITableViewCell {
     @IBOutlet weak var view: UIView!
     {
         didSet{
-//            view.backgroundColor = .red
             view.layer.cornerRadius = 5
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     static func registerNib() -> UINib{
         return UINib(nibName: "RootTableViewCell", bundle: nil)
     }
+    
+    func configureBackgroundView(s:String){
+        guard let temp = Double(s) else {return}
+        if temp < 0{
+            view.backgroundColor = .systemRed
+        }else{
+            view.backgroundColor = .systemGreen
+        }
+        
+    }
+    
     
 }

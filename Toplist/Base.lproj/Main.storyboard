@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="VMK-Rt-ecE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rootCell" id="VMK-Rt-ecE">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VMK-Rt-ecE" id="wAT-lJ-ynk">
@@ -42,7 +42,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="refresher" destination="Q5D-ZO-722" id="Dhp-YV-LeP"/>
-                        <segue destination="nVz-i6-2Xr" kind="presentation" identifier="toNewsTableView" modalPresentationStyle="automatic" id="Uhu-Zs-ZAB"/>
+                        <segue destination="NE8-hI-Iay" kind="presentation" identifier="toNewsTableView" id="RiR-eX-lzT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxU-TV-4FH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -52,16 +52,16 @@
         <!--News-->
         <scene sceneID="aDO-fT-ojP">
             <objects>
-                <tableViewController id="KAE-R2-03y" customClass="NewsTableVC" customModule="Toplist" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NewsTableVC" id="KAE-R2-03y" customClass="NewsTableVC" customModule="Toplist" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UJZ-n7-qsq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="7mV-1v-xGk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newsCell" id="qyp-kX-Qfn">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7mV-1v-xGk" id="7Ff-DB-abH">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qyp-kX-Qfn" id="dqg-EA-cwP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -76,7 +76,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLu-IK-q7d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3766.666666666667" y="113.83928571428571"/>
+            <point key="canvasLocation" x="3800.0000000000005" y="113.83928571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qKa-b3-6Zq">
@@ -97,22 +97,22 @@
             <point key="canvasLocation" x="1066.6666666666667" y="113.83928571428571"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="nBq-y3-zyY">
+        <scene sceneID="STL-nH-fTt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nVz-i6-2Xr" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NE8-hI-Iay" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yYb-Fc-cDT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EyR-4q-1o3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="KAE-R2-03y" kind="relationship" relationship="rootViewController" id="9R0-wt-7up"/>
+                        <segue destination="KAE-R2-03y" kind="relationship" relationship="rootViewController" id="KvR-M5-Vas"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="01D-zA-AXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MQu-pQ-fni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2856.521739130435" y="113.83928571428571"/>
+            <point key="canvasLocation" x="2889.8550724637685" y="113.83928571428571"/>
         </scene>
     </scenes>
     <resources>

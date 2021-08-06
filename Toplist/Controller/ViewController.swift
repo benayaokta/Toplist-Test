@@ -27,13 +27,10 @@ class ViewController: UITableViewController {
         rootVM.fetchData()
     }
 
+    //MARK: - Belum kelar
     @IBAction func refresh(_ sender: UIRefreshControl) {
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            sender.endRefreshing()
-//        }
-        print(#function)
+        sender.endRefreshing()
     }
-    
     
     //MARK: - Data Source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,10 +44,14 @@ class ViewController: UITableViewController {
     
     //MARK: - Delegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65
+        return 75
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: NewsTableVC.segueIdentifier, sender: self)
+        tableView.deselectRow(at: indexPath, animated: false)
+
+        let newsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: NewsTableVC.idenfitier) as! NewsTableVC
+        newsVC.categories = items[indexPath.row].name
+        self.present(newsVC, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,29 +62,20 @@ class ViewController: UITableViewController {
         cell.symbolName.text = itemCell.name
         cell.coinName.text = itemCell.fullname
         cell.currentPrice.text = itemCell.price
-        cell.view.backgroundColor = .gray
         cell.changeDay.text = itemCell.changeDay
-        cell.changePercentage.text = itemCell.changePercentageDay
-        
+        cell.changePercentage.text = "("+itemCell.changePercentageDay+"%)"
+        cell.configureBackgroundView(s: itemCell.changePercentageDay)
+
         return cell
     }
-
     
 }
 
-extension ViewController: RootViewModelDelegate{
+extension ViewController: RootViewModelDelegateOutput{
     func didFinishFetchingData(_ data: [CryptoDataModel]) {
         self.items = data
-        
         DispatchQueue.main.async { [self] in
             tableView.reloadData()
         }
-    
-        
     }
-    
-   
-        
-    
-    
 }

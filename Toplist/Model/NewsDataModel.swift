@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct NewsDataModel {
+    let title: String
+    let source:String
+    let summary:String
+}

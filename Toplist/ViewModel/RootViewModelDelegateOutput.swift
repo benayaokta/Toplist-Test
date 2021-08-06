@@ -5,6 +5,6 @@
 //  Created by Benaya Oktavianus on 06/08/21.
 //
 
-protocol RootViewModelDelegate {
+protocol RootViewModelDelegateOutput {
     func didFinishFetchingData(_ data: [CryptoDataModel])
 }

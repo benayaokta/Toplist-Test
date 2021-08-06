@@ -12,31 +12,22 @@ class RootViewModel {
     private let apiCall = APICall()
     var cryptoData = [CryptoDataModel]()
     
-    var delegate: RootViewModelDelegate?
-    
+    var delegate: RootViewModelDelegateOutput?
     
     func fetchData()
     {
-        
         apiCall.fireHomepageURL { [weak self] cryptoResponse in
-
             guard let self = self else {return}
-            for element in cryptoResponse.Data{
-                
-                if let changeDay = element.DISPLAY?.USD.CHANGEDAY, let changePercentage = element.DISPLAY?.USD.CHANGEPCTDAY, let currentPrice = element.DISPLAY?.USD.PRICE{
-                    self.cryptoData.append(CryptoDataModel(name: element.CoinInfo.Name, fullname: element.CoinInfo.FullName, price: currentPrice, changeDay: changeDay, changePercentageDay: changePercentage))
-                }
-                
-            }
             
+            for element in cryptoResponse.dataResponse{
+                
+                if let changeDay = element.display?.usd.changeDay, let changePercentage = element.display?.usd.changePercentageDay, let currentPrice = element.display?.usd.price{
+                    self.cryptoData.append(CryptoDataModel(name: element.coinInfo.name, fullname: element.coinInfo.fullName, price: currentPrice, changeDay: changeDay, changePercentageDay: changePercentage))
+                }
+            }
             self.delegate?.didFinishFetchingData(self.cryptoData)
-//            print(self.cryptoData)
-
         } onError: { err in
             print(err)
         }
-
-
     }
-    
 }
