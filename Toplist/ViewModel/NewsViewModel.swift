@@ -18,10 +18,14 @@ class NewsViewModel {
     func searchNews(categories: String){
         apiCall.newsAPI(categories: categories) { [weak self] newsDataResponse in
             guard let self = self else {return}
-            for element in newsDataResponse.newsDataResponse{
-                self.newsItem.append(NewsDataModel(title: element.title, source: element.source, summary: element.body))
-                self.delegate?.didFinishFetchNews(self.newsItem)
-            }
+            
+            self.newsItem = newsDataResponse.newsDataResponse.map({ item in
+                return NewsDataModel(title: item.title, source: item.source, summary: item.body)
+            })
+            
+            
+            self.delegate?.didFinishFetchNews(self.newsItem)
+            
         } onFail: { error in
             print(String(describing: error))
         }

@@ -11,6 +11,7 @@ class ViewController: UITableViewController {
     
     let rootVM = RootViewModel()
     var items = [CryptoDataModel]()
+    var selectedItem = ""
     
     @IBOutlet weak var refresher: UIRefreshControl!
 
@@ -21,15 +22,16 @@ class ViewController: UITableViewController {
     }
 
     private func setup(){
+        refresher.beginRefreshing()
         tableView.register(RootTableViewCell.registerNib(), forCellReuseIdentifier: RootTableViewCell.cellIdentifier)
         self.title = "Toplist"
         rootVM.delegate = self
         rootVM.fetchData()
     }
 
-    //MARK: - Belum kelar
+    //MARK: - Pull to Refresh
     @IBAction func refresh(_ sender: UIRefreshControl) {
-        sender.endRefreshing()
+        rootVM.fetchData()
     }
     
     //MARK: - Data Source
@@ -49,10 +51,15 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
 
-        let newsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: NewsTableVC.idenfitier) as! NewsTableVC
+        let newsNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "newsNavBar") as! UINavigationController
+        
+        let newsVC = newsNavigationController.topViewController as! NewsTableVC
+
         newsVC.categories = items[indexPath.row].name
-        self.present(newsVC, animated: true, completion: nil)
+        
+        self.present(newsNavigationController, animated: true, completion: nil)
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RootTableViewCell.cellIdentifier, for: indexPath) as! RootTableViewCell
@@ -71,11 +78,22 @@ class ViewController: UITableViewController {
     
 }
 
+
+//MARK: - Extension
 extension ViewController: RootViewModelDelegateOutput{
+    func errorFound(_ error: NSError) {
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel,handler: { _ in
+            self.rootVM.fetchData()
+        }))
+        self.present(alert, animated: true)
+    }
+    
     func didFinishFetchingData(_ data: [CryptoDataModel]) {
         self.items = data
         DispatchQueue.main.async { [self] in
             tableView.reloadData()
+            refresher.endRefreshing()
         }
     }
 }
