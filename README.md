@@ -10,3 +10,7 @@ In this project, I use some dependencies using Swift Package Manager. There are:
 
 
 If given more time, I want to try to use Web Socket API.
+
+
+Please check out to development branch as main branch is currently unusable. Fix it soon.
+-
