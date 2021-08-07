@@ -18,16 +18,25 @@ class RootViewModel {
     {
         apiCall.fireHomepageURL { [weak self] cryptoResponse in
             guard let self = self else {return}
-            
-            for element in cryptoResponse.dataResponse{
-                
-                if let changeDay = element.display?.usd.changeDay, let changePercentage = element.display?.usd.changePercentageDay, let currentPrice = element.display?.usd.price{
-                    self.cryptoData.append(CryptoDataModel(name: element.coinInfo.name, fullname: element.coinInfo.fullName, price: currentPrice, changeDay: changeDay, changePercentageDay: changePercentage))
+        
+            self.cryptoData = cryptoResponse.dataResponse.compactMap({ cryptoItem in
+                if let price = cryptoItem.display?.usd.price,
+                   let changeDay = cryptoItem.display?.usd.changeDay,
+                   let changePercentage = cryptoItem.display?.usd.changePercentageDay{
+                    
+                    return CryptoDataModel(name: cryptoItem.coinInfo.name,
+                                    fullname: cryptoItem.coinInfo.fullName,
+                                    price: price,
+                                    changeDay:  changeDay,
+                                    changePercentageDay: changePercentage)
                 }
-            }
+                return nil
+            })
+            
             self.delegate?.didFinishFetchingData(self.cryptoData)
         } onError: { err in
-            print(err)
+            self.delegate?.errorFound(err)
         }
     }
+    
 }

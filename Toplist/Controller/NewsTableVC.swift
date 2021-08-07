@@ -8,10 +8,7 @@
 import UIKit
 
 class NewsTableVC: UITableViewController {
-    
-    static let segueIdentifier = "toNewsTableView"
-    static let idenfitier = "NewsTableVC"
-    
+
     let newsVM = NewsViewModel()
     
     var newsItem = [NewsDataModel]()
@@ -22,11 +19,6 @@ class NewsTableVC: UITableViewController {
         setup()
         newsVM.searchNews(categories: categories)
 
-    }
-    
-    deinit {
-        categories = ""
-        print(categories)
     }
     
     private func setup(){
@@ -45,10 +37,7 @@ class NewsTableVC: UITableViewController {
     }
     
     // MARK: - Delegate
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 220
-    }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.cellIdentifier, for: indexPath) as! NewsTableViewCell
         
@@ -56,7 +45,7 @@ class NewsTableVC: UITableViewController {
 
         cell.newsSource.text = newsItem.source
         cell.newsHeadline.text = newsItem.title
-        cell.newsSummary.text = newsItem.summary
+        cell.newsSummary.text = NSAttributedString(html: newsItem.summary)?.string
 
         return cell
     }
